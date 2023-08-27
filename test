@@ -2,3 +2,24 @@ OAUTH_Client_secret = "2222222"
 OAUTH_Client_secret = "3333333ijbsvjk44444444444"
 liuvssecretoa;kr = "ttttttttt"
 liuvssecretoa;kr = "1234556"
+
+
+
+
+def search_in_zip(zip_filename, keyword_patterns):
+    results = {keyword: [] for keyword in keyword_patterns.keys()}
+    
+    with zipfile.ZipFile(zip_filename, 'r') as zip_ref:
+        for file_info in zip_ref.infolist():
+            with zip_ref.open(file_info) as file:
+                try:
+                    content = file.read().decode('utf-8')
+                except UnicodeDecodeError:
+                    content = file.read()  # Read the file as binary
+                for keyword, pattern in keyword_patterns.items():
+                    matches = re.findall(pattern, content, re.IGNORECASE)
+                    if matches:
+                        results[keyword].extend([(match, file_info.filename) for match in matches])
+    
+    return results
+
