@@ -37,7 +37,22 @@ def search_in_zip(zip_filename, keyword_patterns):
     return results
 
 def generate_html_report(results):
-    # ... (the same as in your original code)
+    template_str = """
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Keyword Search Report</title>
+        <!-- Your CSS styles here -->
+    </head>
+    <body>
+        <!-- Your HTML content here -->
+    </body>
+    </html>
+    """
+    
+    template = Template(template_str)
+    report_html = template.render(results=results)
+    return report_html
 
 def main(zip_filename):
     keyword_results = search_in_zip(zip_filename, keywords)
