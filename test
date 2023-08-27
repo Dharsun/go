@@ -10,7 +10,10 @@ def search_in_zip(zip_file_path, keyword_pattern):
                 content = file.read().decode('utf-8', errors='ignore')
                 matches = re.findall(keyword_pattern, content)
                 if matches:
-                    matched_files[file_info.filename] = matches
+                    if file_info.filename not in matched_files:
+                        matched_files[file_info.filename] = set(matches)
+                    else:
+                        matched_files[file_info.filename].update(matches)
 
         return matched_files
 
