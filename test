@@ -1,13 +1,39 @@
-Traceback (most recent call last):
-  File "C:\Users\a754765\Desktop\5.py", line 158, in <module>
-    main(args.zip_filename)
-  File "C:\Users\a754765\Desktop\5.py", line 145, in main
-    keyword_results = search_in_zip(zip_filename, keywords)
-                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\a754765\Desktop\5.py", line 43, in search_in_zip
-    matches = re.findall(pattern, content, re.IGNORECASE)
-              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\a754765\AppData\Local\Programs\Python\Python311\Lib\re\__init__.py", line 216, in findall
-    return _compile(pattern, flags).findall(string)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-TypeError: cannot use a string pattern on a bytes-like object
+def search_in_zip(zip_filename, keyword_patterns):
+    results = {keyword: [] for keyword in keyword_patterns.keys()}
+    
+    with zipfile.ZipFile(zip_filename, 'r') as zip_ref:
+        for file_info in zip_ref.infolist():
+            with zip_ref.open(file_info) as file:
+                content = file.read()
+                
+                # Check if the file is a text-based file (e.g., .txt, .csv, etc.)
+                is_text = any(ext in file_info.filename for ext in ('.txt', '.csv', '.log'))
+                
+                if is_text:
+                    try:
+                        content = content.decode('utf-8')
+                    except UnicodeDecodeError:
+                        print(f"UnicodeDecodeError in {file_info.filename}. Trying alternative encodings...")
+                        alternative_encodings = ['utf-8', 'latin-1']
+                        for encoding in alternative_encodings:
+                            try:
+                                content = content.decode(encoding)
+                                print(f"Decoded {file_info.filename} using {encoding} encoding.")
+                                break
+                            except UnicodeDecodeError:
+                                pass
+                        else:
+                            print(f"Could not decode {file_info.filename}. Skipping...")
+                            continue
+                
+                for keyword, pattern in keyword_patterns.items():
+                    try:
+                        matches = re.findall(pattern, content, re.IGNORECASE)
+                    except re.error:
+                        print(f"Error in regular expression for '{keyword}': {pattern}")
+                        continue
+                    
+                    if matches:
+                        results[keyword].extend([(match, file_info.filename) for match in matches])
+    
+    return results
