@@ -3,28 +3,29 @@ def search_in_zip(zip_filename, keyword_patterns):
     
     with zipfile.ZipFile(zip_filename, 'r') as zip_ref:
         for file_info in zip_ref.infolist():
+            # Check if the file is a binary file based on its extension
+            is_binary = any(ext in file_info.filename for ext in ('.png', '.jpg', '.jpeg', '.gif'))
+            
+            if is_binary:
+                print(f"Skipping binary file: {file_info.filename}")
+                continue
+            
             with zip_ref.open(file_info) as file:
-                content = file.read()
-                
-                # Check if the file is a text-based file (e.g., .txt, .csv, etc.)
-                is_text = any(ext in file_info.filename for ext in ('.txt', '.csv', '.log'))
-                
-                if is_text:
-                    try:
-                        content = content.decode('utf-8')
-                    except UnicodeDecodeError:
-                        print(f"UnicodeDecodeError in {file_info.filename}. Trying alternative encodings...")
-                        alternative_encodings = ['utf-8', 'latin-1']
-                        for encoding in alternative_encodings:
-                            try:
-                                content = content.decode(encoding)
-                                print(f"Decoded {file_info.filename} using {encoding} encoding.")
-                                break
-                            except UnicodeDecodeError:
-                                pass
-                        else:
-                            print(f"Could not decode {file_info.filename}. Skipping...")
-                            continue
+                try:
+                    content = file.read().decode('utf-8')
+                except UnicodeDecodeError:
+                    print(f"UnicodeDecodeError in {file_info.filename}. Trying alternative encodings...")
+                    alternative_encodings = ['utf-8', 'latin-1']
+                    for encoding in alternative_encodings:
+                        try:
+                            content = file.read().decode(encoding)
+                            print(f"Decoded {file_info.filename} using {encoding} encoding.")
+                            break
+                        except UnicodeDecodeError:
+                            pass
+                    else:
+                        print(f"Could not decode {file_info.filename}. Skipping...")
+                        continue
                 
                 for keyword, pattern in keyword_patterns.items():
                     try:
