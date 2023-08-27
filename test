@@ -1,28 +1,42 @@
 import zipfile
 import re
 
-def search_in_zip(zip_file_path, keyword_pattern):
-    matched_keywords = set()
+def search_in_zip(zip_file_path, keyword_pattern, additional_pattern):
+    matched_keywords = {}
 
     with zipfile.ZipFile(zip_file_path, 'r') as zip_ref:
         for file_info in zip_ref.infolist():
             with zip_ref.open(file_info) as file:
                 content = file.read().decode('utf-8', errors='ignore')
-                matches = re.findall(keyword_pattern, content)
-                matched_keywords.update(matches)
+                keyword_matches = re.findall(keyword_pattern, content)
+                if keyword_matches:
+                    additional_matches = re.findall(additional_pattern, content)
+                    if additional_matches:
+                        matched_keywords[file_info.filename] = {
+                            'keywords': keyword_matches,
+                            'additional_matches': additional_matches
+                        }
 
     return matched_keywords
 
 def write_to_html(output_file, matched_keywords):
     with open(output_file, 'w') as f:
         f.write("<html><body>")
-        f.write("<h2>Matched Keywords in Zip Archive</h2>")
+        f.write("<h2>Matched Keywords and Additional Matches in Zip Archive</h2>")
         
         if matched_keywords:
-            f.write("<ul>")
-            for keyword in matched_keywords:
-                f.write(f"<li>{keyword}</li>")
-            f.write("</ul>")
+            for file_name, matches in matched_keywords.items():
+                f.write(f"<h3>{file_name}</h3>")
+                f.write("<h4>Matched Keywords:</h4>")
+                f.write("<ul>")
+                for keyword in matches['keywords']:
+                    f.write(f"<li>{keyword}</li>")
+                f.write("</ul>")
+                f.write("<h4>Additional Matches:</h4>")
+                f.write("<ul>")
+                for additional_match in matches['additional_matches']:
+                    f.write(f"<li>{additional_match}</li>")
+                f.write("</ul>")
         else:
             f.write("<p>No matches found.</p>")
         
@@ -31,14 +45,17 @@ def write_to_html(output_file, matched_keywords):
 if __name__ == "__main__":
     zip_file_path = 'a.zip'
     keyword_pattern = r'srv.*AP\d+[A-Za-z]*'
+    additional_pattern = r'your_additional_regex_pattern_here'
     output_html_file = 'output.html'
 
-    matched_keywords = search_in_zip(zip_file_path, keyword_pattern)
+    matched_keywords = search_in_zip(zip_file_path, keyword_pattern, additional_pattern)
 
     if matched_keywords:
-        print("Matched keywords:")
-        for keyword in matched_keywords:
-            print(keyword)
+        print("Matched keywords and additional matches:")
+        for file_name, matches in matched_keywords.items():
+            print(file_name)
+            print("Matched keywords:", matches['keywords'])
+            print("Additional matches:", matches['additional_matches'])
     else:
         print("No matches found.")
 
