@@ -2,33 +2,27 @@ import zipfile
 import re
 
 def search_in_zip(zip_file_path, keyword_pattern):
-    with zipfile.ZipFile(zip_file_path, 'r') as zip_ref:
-        matched_files = {}
+    matched_keywords = set()
 
+    with zipfile.ZipFile(zip_file_path, 'r') as zip_ref:
         for file_info in zip_ref.infolist():
             with zip_ref.open(file_info) as file:
                 content = file.read().decode('utf-8', errors='ignore')
                 matches = re.findall(keyword_pattern, content)
-                if matches:
-                    if file_info.filename not in matched_files:
-                        matched_files[file_info.filename] = set(matches)
-                    else:
-                        matched_files[file_info.filename].update(matches)
+                matched_keywords.update(matches)
 
-        return matched_files
+    return matched_keywords
 
-def write_to_html(output_file, matched_files):
+def write_to_html(output_file, matched_keywords):
     with open(output_file, 'w') as f:
         f.write("<html><body>")
         f.write("<h2>Matched Keywords in Zip Archive</h2>")
         
-        if matched_files:
-            for file_name, keywords in matched_files.items():
-                f.write(f"<h3>{file_name}</h3>")
-                f.write("<ul>")
-                for keyword in keywords:
-                    f.write(f"<li>{keyword}</li>")
-                f.write("</ul>")
+        if matched_keywords:
+            f.write("<ul>")
+            for keyword in matched_keywords:
+                f.write(f"<li>{keyword}</li>")
+            f.write("</ul>")
         else:
             f.write("<p>No matches found.</p>")
         
@@ -39,13 +33,13 @@ if __name__ == "__main__":
     keyword_pattern = r'your_regex_pattern_here'
     output_html_file = 'output.html'
 
-    matched_files = search_in_zip(zip_file_path, keyword_pattern)
+    matched_keywords = search_in_zip(zip_file_path, keyword_pattern)
 
-    if matched_files:
-        print("Keyword found in the following files:")
-        for file_name, keywords in matched_files.items():
-            print(file_name, keywords)
+    if matched_keywords:
+        print("Matched keywords:")
+        for keyword in matched_keywords:
+            print(keyword)
     else:
-        print("Keyword not found in any files.")
+        print("No matches found.")
 
-    write_to_html(output_html_file, matched_files)
+    write_to_html(output_html_file, matched_keywords)
