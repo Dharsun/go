@@ -29,8 +29,8 @@ def write_to_html(output_file, matched_keywords):
         f.write("</body></html>")
 
 if __name__ == "__main__":
-    zip_file_path = 'path/to/your/archive.zip'
-    keyword_pattern = r'your_regex_pattern_here'
+    zip_file_path = 'a.zip'
+    keyword_pattern = r'srv.*AP\d+[A-Za-z]*'
     output_html_file = 'output.html'
 
     matched_keywords = search_in_zip(zip_file_path, keyword_pattern)
