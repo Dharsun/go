@@ -1,0 +1,27 @@
+import zipfile
+import re
+
+def search_in_zip(zip_file_path, keyword_pattern):
+    with zipfile.ZipFile(zip_file_path, 'r') as zip_ref:
+        matched_files = []
+
+        for file_info in zip_ref.infolist():
+            with zip_ref.open(file_info) as file:
+                content = file.read().decode('utf-8', errors='ignore')
+                if re.search(keyword_pattern, content):
+                    matched_files.append(file_info.filename)
+
+        return matched_files
+
+if __name__ == "__main__":
+    zip_file_path = 'path/to/your/archive.zip'
+    keyword_pattern = r'your_regex_pattern_here'
+
+    matched_files = search_in_zip(zip_file_path, keyword_pattern)
+
+    if matched_files:
+        print("Keyword found in the following files:")
+        for file_name in matched_files:
+            print(file_name)
+    else:
+        print("Keyword not found in any files.")
