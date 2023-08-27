@@ -10,11 +10,19 @@ keywords = {
     # Add more keywords and patterns as needed
 }
 
+# Add the file extensions you want to exclude from processing
+excluded_extensions = ['.img', '.pdf', '.docx']  # Add more extensions as needed
+
 def search_in_zip(zip_filename, keyword_patterns):
     results = {keyword: [] for keyword in keyword_patterns.keys()}
     
     with zipfile.ZipFile(zip_filename, 'r') as zip_ref:
         for file_info in zip_ref.infolist():
+            # Check if the file extension is in the excluded_extensions list
+            if any(ext in file_info.filename for ext in excluded_extensions):
+                print(f"Skipping excluded file: {file_info.filename}")
+                continue
+            
             # Check if the file is a binary file based on its extension
             is_binary = any(ext in file_info.filename for ext in ('.png', '.jpg', '.jpeg', '.gif'))
             
