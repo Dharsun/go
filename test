@@ -11,9 +11,9 @@ def search_in_zip(zip_file_path, keyword_pattern):
                 matches = re.findall(keyword_pattern, content)
                 if matches:
                     if file_info.filename not in matched_files:
-                        matched_files[file_info.filename] = matches
+                        matched_files[file_info.filename] = set(matches)
                     else:
-                        matched_files[file_info.filename].extend(keyword for keyword in matches if keyword not in matched_files[file_info.filename])
+                        matched_files[file_info.filename].update(matches)
 
         return matched_files
 
@@ -43,8 +43,8 @@ if __name__ == "__main__":
 
     if matched_files:
         print("Keyword found in the following files:")
-        for file_name in matched_files:
-            print(file_name)
+        for file_name, keywords in matched_files.items():
+            print(file_name, keywords)
     else:
         print("Keyword not found in any files.")
 
