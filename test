@@ -1,15 +1,59 @@
-def search_in_folder(folder_path, keyword_patterns):
-    results = {keyword: [] for keyword in keyword_patterns.keys()}
+import re
+import zipfile
+from jinja2 import Template
+import argparse
 
-    for root, _, files in os.walk(folder_path):
-        for file_name in files:
-            file_path = os.path.join(root, file_name)
-            with open(file_path, 'r', encoding='utf-8', errors='ignore') as file:
-                content = file.read()
+# Define your keywords and regular expression patterns
+keywords = {
+    'email': r'srv.*AP\d+[A-Za-z]*',
+    'password': r'.*?(?:secret|password).*?"(.*?)"',
+    # Add more keywords and patterns as needed
+}
+
+def search_in_zip(zip_filename, keyword_patterns):
+    results = {keyword: [] for keyword in keyword_patterns.keys()}
+    
+    with zipfile.ZipFile(zip_filename, 'r') as zip_ref:
+        for file_info in zip_ref.infolist():
+            with zip_ref.open(file_info) as file:
+                try:
+                    content = file.read().decode('utf-8')
+                except UnicodeDecodeError:
+                    alternative_encodings = ['utf-8', 'latin-1']
+                    for encoding in alternative_encodings:
+                        try:
+                            content = file.read().decode(encoding)
+                            break
+                        except UnicodeDecodeError:
+                            pass
+                    else:
+                        continue
                 
                 for keyword, pattern in keyword_patterns.items():
                     matches = re.findall(pattern, content, re.IGNORECASE)
                     if matches:
-                        results[keyword].extend([(match, file_path) for match in matches])
-
+                        results[keyword].extend([(match, file_info.filename) for match in matches])
+    
     return results
+
+def generate_html_report(results):
+    # ... (the same as in your original code)
+
+def main(zip_filename):
+    keyword_results = search_in_zip(zip_filename, keywords)
+    report_html = generate_html_report(keyword_results)
+    
+    with open("report.html", "w", encoding="utf-8") as report_file:
+        report_file.write(report_html)
+    
+    print("Report generated successfully as 'report.html'")
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Generate a keyword search report from a zip file.")
+    parser.add_argument("zip_filename", type=str, help="Name of the zip file to search in")
+    args = parser.parse_args()
+
+    try:
+        main(args.zip_filename)
+    except Exception as e:
+        print("An error occurred:", str(e))
