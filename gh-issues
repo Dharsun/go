@@ -1,0 +1,55 @@
+import requests
+import json
+import csv
+
+# Define your GitHub personal access token
+token = 'YOUR_GITHUB_ACCESS_TOKEN'
+
+# Define the repository owner and name
+repo_owner = 'owner'
+repo_name = 'repository_name'
+
+# Define the labels or keywords used to identify CVEs (you can customize this)
+cve_labels = ['CVE', 'security', 'vulnerability']
+
+# Initialize a list to store CVE issues
+cve_issues = []
+
+# Function to fetch issues using the GitHub API
+def fetch_issues(page=1):
+    url = f'https://api.github.com/repos/{repo_owner}/{repo_name}/issues'
+    params = {
+        'access_token': token,
+        'page': page,
+        'state': 'all',  # You can adjust this to 'open', 'closed', or 'all'
+    }
+    response = requests.get(url, params=params)
+    if response.status_code == 200:
+        return response.json()
+    else:
+        return []
+
+# Fetch issues page by page until there are no more issues
+page = 1
+while True:
+    issues = fetch_issues(page)
+    if not issues:
+        break
+
+    for issue in issues:
+        # Check if any of the labels or keywords match CVE-related terms
+        if any(label in issue['title'] or label in issue['body'] for label in cve_labels):
+            cve_issues.append(issue)
+
+    page += 1
+
+# Export CVE issues to a CSV file
+csv_file = 'cve_issues.csv'
+with open(csv_file, mode='w', newline='') as file:
+    writer = csv.writer(file)
+    writer.writerow(['Issue Number', 'Title', 'URL'])
+
+    for issue in cve_issues:
+        writer.writerow([issue['number'], issue['title'], issue['html_url']])
+
+print(f'{len(cve_issues)} CVE-related issues exported to {csv_file}')
