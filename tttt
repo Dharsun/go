@@ -1,17 +1,229 @@
+HTTP/1.1 200 OK
+Date: Sun, 03 Dec 2023 14:53:27 GMT
+Server: Apache
+Vary: User-Agent,accept-encoding
+fsreqid: REQ656c9667690035728ae521e116bcaa33
+cache-control: private, no-cache=set-cookie
+content-language: en-US
+Content-Type: text/html; charset=iso-8859-1
+expires: Thu, 01 Jan 1970 00:00:00 GMT
+IBI_DBMSTIME: 00:00:01.515
+Origin-Agent-Cluster: ?0
+X-Content-Type-Options: nosniff
+X-Frame-Options: SAMEORIGIN
+X-IBI-OutputType: DEFAULT;;
+X-XSS-protection: 1; mode=block
+fscalleeid: fbtwebfac
+fselapsedtime: 2541645
+P3P: CP="UNI DEM GOV FIN STA COM NAV PRE INT ONL CUR ADM DEV PSA PSD CUSi IVDi IVAi TELi CONi TAI OUR OTRi"
+set-cookie: WF-JSESSIONID=0000h0GyKBzUqz8lXPBLbJWxqUd:-1; path=/; httponly; secure; samesite=none
+set-cookie: maxInactiveInterval=7200000; path=/reporting/ibi_apps; expires=Sun, 03-Dec-23 16:53:29 GMT; secure; samesite=none
+set-cookie: serverTime=1701615207904; path=/reporting/ibi_apps; expires=Sun, 03-Dec-23 16:53:29 GMT; secure; samesite=none
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+Connection: close
+Content-Length: 6644
+
+<HTML><HEAD><TITLE>Error Notification</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=windows-1252">
+<META content="MSHTML 6.00.2900.5945" name=GENERATOR></HEAD>
+<BODY id=rid>
+<DIV id=mainNotificationBody>
+<DIV id=mainContent>
+<P>An error occurred while retrieving the report. Please close this window and resubmit the request. If the problem persists, please contact your home office.
+</P></DIV>
+</DIV></BODY></HTML>
+<!--InlineMessages URL1 2023-12-03_09.53.29.964
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE----------generic_bportal-------0
+VALIDATE---------- -------0
+VALIDATE----------bd-------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE_NUMBER----- ------------0
+VALIDATE_NUMBER-----test------------1
+VALIDATE_NUMBER----- ------------0
+VALIDATE_NUMBER----- ------------0
+VALIDATE_NUMBER----- ------------0
+VALIDATE_NUMBER----- ------------0
+VALIDATE_NUMBER-----6821000708------------0
+VALIDATE_NUMBER----- ------------0
+VALIDATE_NUMBER----- ------------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE_NUMBER----- ------------0
+VALIDATE----------HTML-------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE_NUMBER----- ------------0
+VALIDATE----------fac-www2-streetscape.fmr.com-------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE_NUMBER----- ------------0
+VALIDATE_NUMBER----- ------------0
+VALIDATE_NUMBER----- ------------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE----------rpt-1701436631482-------0
+VALIDATE---------- -------0
+VALIDATE----------true'-------0
+VALIDATE----------12/02/2013-------0
+VALIDATE----------12/01/2023-------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALID_CHK is------------- PASSED
 0 NUMBER OF RECORDS IN TABLE=        1  LINES=      1
-(FOC1400) SQLCODE IS 6550 (HEX: 00001996)
-(FOC1500)  :  ORA-06550: line 1, column 109:
-(FOC1500)  :  PLS-00103: Encountered the symbol "UNION" when expecting one of the
-(FOC1500)  :  following:
-(FOC1500)  :     ) , * & = - + < / > at in is mod remainder not rem =>
-(FOC1500)  :     <an exponent (**)> <> or != or ~= >= <= <> and or like like2
-(FOC1500)  :     like4 likec between || multiset member submultiset
-(FOC1500)  :  ORA-06550: line 1, column 275:
-(FOC1500)  :  PLS-00103: Encountered the symbol "end-of-file" when expecting one of
-(FOC1500)  :  the following:
-(FOC1500)  :     . , @ ; for <an identifier>
-L    (FOC1405) SQL PREPARE ERROR.
-0 ERROR AT OR NEAR LINE     89  IN PROCEDURE psar_ctl
-(FOC339) FAILURE ON -READ OR -WRITE: CHECK FILEDEF OR ALLOCATION FOR: PSAR_SEQ_GEN
+0 NUMBER OF RECORDS IN TABLE=        1  LINES=      1
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE----------GAH-------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE----------generic_bportal-------0
+VALIDATE---------- -------0
+VALIDATE----------bd-------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE_NUMBER----- ------------0
+VALIDATE_NUMBER-----test------------1
+VALIDATE_NUMBER----- ------------0
+VALIDATE_NUMBER----- ------------0
+VALIDATE_NUMBER----- ------------0
+VALIDATE_NUMBER----- ------------0
+VALIDATE_NUMBER-----6821000708------------0
+VALIDATE_NUMBER----- ------------0
+VALIDATE_NUMBER----- ------------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE_NUMBER----- ------------0
+VALIDATE----------HTML-------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE_NUMBER----- ------------0
+VALIDATE----------fac-www2-streetscape.fmr.com-------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE----------03/21/2019-------0
+VALIDATE---------- -------0
+VALIDATE_NUMBER----- ------------0
+VALIDATE_NUMBER----- ------------0
+VALIDATE_NUMBER----- ------------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE----------rpt-1701436631482-------0
+VALIDATE---------- -------0
+VALIDATE----------true'-------0
+VALIDATE----------12/02/2013-------0
+VALIDATE----------12/01/2023-------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALID_CHK is------------- PASSED
+1
+0 NUMBER OF RECORDS IN TABLE=     4529  LINES=   4529
+0
+0 NUMBER OF RECORDS IN TABLE=     4529  LINES=   4529
+1
+0 NUMBER OF RECORDS IN TABLE=     4529  LINES=   4529
+0 NUMBER OF RECORDS IN TABLE=     4529  LINES=   4529
+1
+0 NUMBER OF RECORDS IN TABLE=     4529  LINES=   4529
+0 ERROR AT OR NEAR LINE    190  IN PROCEDURE PSAR_HTML
+(FOC224) SYNTAX ERROR: &fromDate
+0 ERROR AT OR NEAR LINE    225  IN PROCEDURE PSAR_HTML
+(FOC406) THE FIELDNAME IS NOT RECOGNIZED: ACTV
+(FOC009) Request failed validation, not executed.
 
 -->
