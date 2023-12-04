@@ -27,3 +27,193 @@ L    (FOC1405) SQL PREPARE ERROR.
 (FOC339) FAILURE ON -READ OR -WRITE: CHECK FILEDEF OR ALLOCATION FOR: PSAR_SEQ_GEN
 
 -->
+
+
+WFFMT=PDF'%20OR%20'1'='2'%20||%20'%20--'
+
+<!--startEdaMsgs-->
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE----------generic_bportal-------0
+ VALIDATE---------- -------0
+ VALIDATE----------bd-------0
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE_NUMBER----- ------------0
+ VALIDATE_NUMBER-----test------------1
+ VALIDATE_NUMBER----- ------------0
+ VALIDATE_NUMBER----- ------------0
+ VALIDATE_NUMBER----- ------------0
+ VALIDATE_NUMBER----- ------------0
+ VALIDATE_NUMBER-----6821000708------------0
+ VALIDATE_NUMBER----- ------------0
+ VALIDATE_NUMBER----- ------------0
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE_NUMBER----- ------------0
+ VALIDATE----------PDF&#39; OR &#39;1&#39;&#61;&#39;2&#39; || &#39; --&#39;-------1
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE_NUMBER----- ------------0
+ VALIDATE----------fac-www2-streetscape.fmr.com-------0
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE_NUMBER----- ------------0
+ VALIDATE_NUMBER----- ------------0
+ VALIDATE_NUMBER----- ------------0
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALIDATE----------rpt-1701681070574-------0
+ VALIDATE---------- -------0
+ VALIDATE----------true-------0
+ VALIDATE----------12/05/2013-------0
+ VALIDATE----------12/04/2023-------0
+ VALIDATE---------- -------0
+ VALIDATE---------- -------0
+ VALID_CHK is------------- FAILED
+
+<!--endEdaMsgs--></pre> 
+</div> 
+</div>
+</body>
+</html>
+<!--InlineMessages URL4618 2023-12-04_05.35.39.344
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE----------generic_bportal-------0
+VALIDATE---------- -------0
+VALIDATE----------bd-------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE_NUMBER----- ------------0
+VALIDATE_NUMBER-----test------------1
+VALIDATE_NUMBER----- ------------0
+VALIDATE_NUMBER----- ------------0
+VALIDATE_NUMBER----- ------------0
+VALIDATE_NUMBER----- ------------0
+VALIDATE_NUMBER-----6821000708------------0
+VALIDATE_NUMBER----- ------------0
+VALIDATE_NUMBER----- ------------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE_NUMBER----- ------------0
+VALIDATE----------PDF' OR '1'='2' || ' --'-------1
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE_NUMBER----- ------------0
+VALIDATE----------fac-www2-streetscape.fmr.com-------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE_NUMBER----- ------------0
+VALIDATE_NUMBER----- ------------0
+VALIDATE_NUMBER----- ------------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALIDATE----------rpt-1701681070574-------0
+VALIDATE---------- -------0
+VALIDATE----------true-------0
+VALIDATE----------12/05/2013-------0
+VALIDATE----------12/04/2023-------0
+VALIDATE---------- -------0
+VALIDATE---------- -------0
+VALID_CHK is------------- FAILED
+
+-->
