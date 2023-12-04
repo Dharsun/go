@@ -13,3 +13,17 @@
 L    (FOC1405) SQL PREPARE ERROR.
 0 ERROR AT OR NEAR LINE     89  IN PROCEDURE psar_ctl
 (FOC339) FAILURE ON -READ OR -WRITE: CHECK FILEDEF OR ALLOCATION FOR: PSAR_SEQ_GEN
+
+
+0 NUMBER OF RECORDS IN TABLE=        1  LINES=      1
+(FOC1400) SQLCODE IS 6550 (HEX: 00001996)
+(FOC1500)  :  ORA-06550: line 1, column 126:
+(FOC1500)  :  PLS-00103: Encountered the symbol "end-of-file" when expecting one of
+(FOC1500)  :  the following:
+(FOC1500)  :     ) , * & - + / at mod remainder rem <an exponent (**)> and or
+(FOC1500)  :     || multiset
+L    (FOC1405) SQL PREPARE ERROR.
+0 ERROR AT OR NEAR LINE     89  IN PROCEDURE psar_ctl
+(FOC339) FAILURE ON -READ OR -WRITE: CHECK FILEDEF OR ALLOCATION FOR: PSAR_SEQ_GEN
+
+-->
