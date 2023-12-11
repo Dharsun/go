@@ -19,10 +19,10 @@
       function submitForm() {
         var xhr = new XMLHttpRequest();
         xhr.open("POST", "https://fin-wealthcentral-advisorchannel.fmr.com/ssc/mars/wc/channel/api/v1/rebalances/workplace/send-instructions", true);
-        xhr.setRequestHeader("Content-Type", "application/json");
 
-        // You can add additional headers here if needed
-        // xhr.setRequestHeader("Header-Name", "Header-Value");
+        // Add custom headers
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.setRequestHeader("Your-Custom-Header", "Header-Value");
 
         xhr.onreadystatechange = function() {
           if (xhr.readyState == 4 && xhr.status == 200) {
@@ -40,3 +40,4 @@
     </script>
   </body>
 </html>
+
