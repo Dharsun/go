@@ -96,3 +96,31 @@
   </body>
 </html>
 
+
+
+
+<html>
+  <body onload="submitForm()">
+    <script>
+      function submitForm() {
+        fetch('/path-to-your-proxy.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            targetType: 'Account',
+            selectedAccounts: [
+              { accountNumber: '34850352705204', custodian: 'FID', accountSource: 'FPRS' },
+            ],
+            newRequest: true,
+            fsake: '',
+          }),
+        })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error('Error:', error));
+      }
+    </script>
+  </body>
+</html>
