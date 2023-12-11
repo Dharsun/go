@@ -17,32 +17,30 @@
 
     <script>
       function submitForm() {
-        // Create a hidden iframe
-        var iframe = document.createElement('iframe');
-        iframe.style.display = 'none';
-        document.body.appendChild(iframe);
+        var form = document.getElementById("csrf");
 
-        // Set the form target to the iframe
-        document.getElementById('csrf').target = iframe.name = 'iframeForm';
+        // Create a dynamic anchor element
+        var anchor = document.createElement("a");
 
-        // Add a custom header to the form
-        var customHeaderInput = document.createElement('input');
-        customHeaderInput.type = 'hidden';
-        customHeaderInput.name = 'Your-Custom-Header';
-        customHeaderInput.value = 'Header-Value';
-        document.getElementById('csrf').appendChild(customHeaderInput);
+        // Set the anchor attributes
+        anchor.href = form.action;
+        anchor.target = "_blank"; // Open in a new window/tab
 
-        // Submit the form
-        document.getElementById('csrf').submit();
+        // Append the form to the anchor
+        anchor.appendChild(form);
 
-        // Remove the iframe after the form submission
+        // Trigger a click on the anchor
+        anchor.click();
+
+        // Remove the form from the anchor after submission (optional)
         setTimeout(function () {
-          document.body.removeChild(iframe);
+          anchor.removeChild(form);
         }, 1000); // Adjust the delay based on your needs
       }
     </script>
   </body>
 </html>
+
 
 
 
