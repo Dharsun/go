@@ -17,29 +17,13 @@
 
     <script>
       function submitForm() {
-        var form = document.getElementById("csrf");
-
-        // Create a dynamic anchor element
-        var anchor = document.createElement("a");
-
-        // Set the anchor attributes
-        anchor.href = form.action;
-        anchor.target = "_blank"; // Open in a new window/tab
-
-        // Append the form to the anchor
-        anchor.appendChild(form);
-
-        // Trigger a click on the anchor
-        anchor.click();
-
-        // Remove the form from the anchor after submission (optional)
-        setTimeout(function () {
-          anchor.removeChild(form);
-        }, 1000); // Adjust the delay based on your needs
+        // Submit the form directly
+        document.getElementById("csrf").submit();
       }
     </script>
   </body>
 </html>
+
 
 
 
