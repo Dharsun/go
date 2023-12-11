@@ -17,33 +17,33 @@
 
     <script>
       function submitForm() {
-        var formData = new FormData(document.getElementById("csrf"));
+        // Create a hidden iframe
+        var iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        document.body.appendChild(iframe);
 
-        // Construct the fetch options
-        var fetchOptions = {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Your-Custom-Header': 'Header-Value'
-          },
-          body: formData
-        };
+        // Set the form target to the iframe
+        document.getElementById('csrf').target = iframe.name = 'iframeForm';
 
-        // Make the fetch request
-        fetch("https://fin-wealthcentral-advisorchannel.fmr.com/ssc/mars/wc/channel/api/v1/rebalances/workplace/send-instructions", fetchOptions)
-          .then(response => response.json())
-          .then(data => {
-            // Handle the response data if needed
-            console.log(data);
-          })
-          .catch(error => {
-            // Handle errors here
-            console.error('Error:', error);
-          });
+        // Add a custom header to the form
+        var customHeaderInput = document.createElement('input');
+        customHeaderInput.type = 'hidden';
+        customHeaderInput.name = 'Your-Custom-Header';
+        customHeaderInput.value = 'Header-Value';
+        document.getElementById('csrf').appendChild(customHeaderInput);
+
+        // Submit the form
+        document.getElementById('csrf').submit();
+
+        // Remove the iframe after the form submission
+        setTimeout(function () {
+          document.body.removeChild(iframe);
+        }, 1000); // Adjust the delay based on your needs
       }
     </script>
   </body>
 </html>
+
 
 
 
